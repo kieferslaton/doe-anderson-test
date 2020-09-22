@@ -3,6 +3,7 @@
 To run this project - 
 
 - Clone this repo
+- CD into repo folder
 - Run npm i to install necessary packages
 - Yarn start
 - Visit localhost:3000
