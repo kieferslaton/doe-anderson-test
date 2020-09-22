@@ -42,7 +42,7 @@ function App() {
     {user ? 
     <div className="container">
       <Info user={user} />
-      <Contact />
+      <Contact user={user}/>
     </div>
     : ''}
     </>
