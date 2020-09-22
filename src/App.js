@@ -4,6 +4,9 @@ import './App.scss';
 import axios from 'axios'
 import moment from 'moment'
 
+import Info from './Info'
+import Contact from './Contact'
+
 function App() {
 
   const [user, setUser] = useState(null)
@@ -21,6 +24,7 @@ function App() {
     newUser.birthday = moment(data.dob.date).format('MMMM D YYYY')
     newUser.username = data.login.username
     newUser.password = data.login.password
+    newUser.image = data.picture.large
     setUser(newUser)
   }).catch(err => console.log(err))
   }
@@ -30,9 +34,14 @@ function App() {
   }, [])
 
   return (
+    <>
+    {user ? 
     <div className="container">
-      {user ? JSON.stringify(user) : 'Error fetching data'}
+      <Info user={user} />
+      <Contact />
     </div>
+    : ''}
+    </>
   );
 }
 
