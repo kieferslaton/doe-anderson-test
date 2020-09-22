@@ -1,3 +1,12 @@
+## Instructions
+
+To run this project - 
+
+- Clone this repo
+- Run npm i to install necessary packages
+- Yarn start
+- Visit localhost:3000
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
