@@ -11,6 +11,13 @@ $error : #dc493a;
   margin: 0 auto;
 }
 
+.message-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
 .row{
   display: flex;
   justify-content: center;

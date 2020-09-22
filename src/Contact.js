@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const Contact = ({ user }) => {
-
   //Storing form data
   const [form, setForm] = useState({
     name: "",
@@ -13,7 +12,7 @@ const Contact = ({ user }) => {
   const [isSubmit, setIsSubmit] = useState(false);
 
   //Storing errors globally so the forms can conditionally add classes
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([]);
 
   //State for error message, initialize as empty
   const [errorMsg, setErrorMsg] = useState(null);
@@ -28,40 +27,39 @@ const Contact = ({ user }) => {
 
   const errorCheck = () => {
     //Initialize empty errors array
-    let errors = []
+    let errors = [];
 
-    //Iterate through each item in the form object. If the property related to that key is empty, it will push the key name to the errors array. 
-    Object.keys(form).forEach(key => {
-      if(form[key] === ""){
-        errors.push(key)
+    //Iterate through each item in the form object. If the property related to that key is empty, it will push the key name to the errors array.
+    Object.keys(form).forEach((key) => {
+      if (form[key] === "") {
+        errors.push(key);
       }
-    })
+    });
 
     //Pass the errors array to the submit function.
-    setErrors(errors)
-    return errors
-
-  }
+    setErrors(errors);
+    return errors;
+  };
 
   const handleSubmit = (e) => {
     //Prevent page from reloading
     e.preventDefault();
     //Error checking, set errors and return
-    let errors = errorCheck()
+    let errors = errorCheck();
     //If there are any errors, set a helper message and don't submit the form.
-    if(errors.length > 0) {
-      setErrorMsg('One or more required fields is missing.')
-      return
+    if (errors.length > 0) {
+      setErrorMsg("One or more required fields is missing.");
+      return;
     }
     //Code to successfully submit the form would go here. For this exercise we'll just console.log it
     console.log(form);
     //Display the submit success message to the user and clear the form (and error message) in case they go back
     setIsSubmit(!isSubmit);
     setForm({
-      name: '', 
-      email: '', 
-      message: ''
-    })
+      name: "",
+      email: "",
+      message: "",
+    });
     setErrorMsg(null);
   };
 
@@ -88,7 +86,7 @@ const Contact = ({ user }) => {
             the value and b) Whether the form object has any text in it at this key. If so, add an error class. 
             */
             className={`
-            ${errors.includes("name") && !form.name.length ? 'error' : ''}
+            ${errors.includes("name") && !form.name.length ? "error" : ""}
             w-100`}
             value={form.name}
             onChange={handleChange}
@@ -98,7 +96,7 @@ const Contact = ({ user }) => {
             name="email"
             placeholder="Email"
             className={`
-            ${errors.includes("email") && !form.email.length ? 'error' : ''}
+            ${errors.includes("email") && !form.email.length ? "error" : ""}
             w-100`}
             value={form.email}
             onChange={handleChange}
@@ -107,7 +105,7 @@ const Contact = ({ user }) => {
             name="message"
             placeholder="How can I help?"
             className={`
-            ${errors.includes("message") && !form.message.length ? 'error' : ''}
+            ${errors.includes("message") && !form.message.length ? "error" : ""}
             w-100`}
             rows={6}
             value={form.message}
@@ -116,9 +114,11 @@ const Contact = ({ user }) => {
           <button type="submit" className="w-100">
             Submit
           </button>
-          {errorMsg ? 
-          <small className="w-100 error-message">{errorMsg}</small> : 
-          ''}
+          {errorMsg ? (
+            <small className="w-100 error-message">{errorMsg}</small>
+          ) : (
+            ""
+          )}
         </form>
       )}
     </div>

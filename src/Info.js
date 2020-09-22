@@ -98,10 +98,10 @@ const Info = ({ user }) => {
               </>
             ) : activeInfo === "Address" ? (
               <>
-                <span style={{fontSize: '1rem'}}>
-                <strong>Address</strong> : {user.addr1}
-                <br />
-                {user.addr2}, {user.country}
+                <span style={{ fontSize: "1rem" }}>
+                  <strong>Address</strong> : {user.addr1}
+                  <br />
+                  {user.addr2}, {user.country}
                 </span>
               </>
             ) : (
