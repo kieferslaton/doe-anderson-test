@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import { FaFacebook, FaTwitter, FaInstagram, FaFacebookF } from 'react-icons/fa'
 import './App.scss';
 import axios from 'axios'
 import moment from 'moment'
@@ -40,10 +40,19 @@ function App() {
   return (
     <>
     {user ? 
+    <>
     <div className="container">
       <Info user={user} />
       <Contact user={user}/>
     </div>
+    <footer>
+      <div className="social">
+        <a href="https://www.facebook.com" target="_blank"><FaFacebookF /></a>
+        <a href="https://www.twitter.com" target="_blank"><FaTwitter /></a>
+        <a href="https://www.instagram.com" target="_blank"><FaInstagram /></a>
+      </div>
+    </footer>
+    </>
     : ''}
     </>
   );
