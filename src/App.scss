@@ -1,3 +1,5 @@
+$error : #dc493a;
+
 *{
   font-family: Helvetica, sans-serif;
 }
@@ -93,13 +95,17 @@ form{
   }
 }
 
-input{
+input[type=text]{
   margin: 10px 0;
-  color: black;
   border: none;
   border-bottom: 1px solid black;
+  transition: all 0.1s ease;
   &:first-of-type{
     margin-top: 0;
+  }
+  &.error{
+    border-bottom: 1px solid $error;
+    transition: all 0.1s ease;
   }
 }
 
@@ -108,6 +114,11 @@ textarea{
   border-radius: 0;
   color: black;
   padding: 3px;
+  transition: all 0.1s ease;
+  &.error{
+    border: 1px solid $error;
+    transition: all 0.1s ease;
+  }
 }
 
 button{
@@ -120,5 +131,10 @@ button{
   justify-content: center;
   align-items: center;
   box-shadow: 2px 2px black;
+}
+
+.error-message{
+  justify-content: center;
+  color: $error;
 }
 
