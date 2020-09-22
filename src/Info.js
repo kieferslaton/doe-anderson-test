@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import {
   FaAddressBook,
   FaMap,
@@ -23,7 +23,7 @@ const Info = ({ user }) => {
         <div className="row w-50">
           <img src={user.image} alt="Profile" className="user-image" />
         </div>
-        <div className="row w-50 wrap">
+        <div className="row w-50 wrap icons">
           <div className="row w-100">
             <div className="w-50 icon">
               <div
@@ -83,7 +83,7 @@ const Info = ({ user }) => {
       <div className="row w-100 no-wrap header-wrapper">
         <div className="info-header">
           {
-            //For a couple of these headers, it looks much cleaner to display on multiple lines. That's what this logic is going with several ternary operators
+            //For a couple of these headers, it looks much cleaner to display on multiple lines. That's what this logic is doing with several ternary operators
             activeInfo === "Phone" ? (
               <>
                 <strong>Phone</strong>: {user.phone}
@@ -98,9 +98,11 @@ const Info = ({ user }) => {
               </>
             ) : activeInfo === "Address" ? (
               <>
+                <span style={{fontSize: '1rem'}}>
                 <strong>Address</strong> : {user.addr1}
                 <br />
                 {user.addr2}, {user.country}
+                </span>
               </>
             ) : (
               <>

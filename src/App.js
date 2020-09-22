@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaFacebookF } from 'react-icons/fa'
+import { FaTwitter, FaInstagram, FaFacebookF } from 'react-icons/fa'
 import './App.scss';
 import axios from 'axios'
 import moment from 'moment'
@@ -17,7 +17,6 @@ function App() {
     //I don't want to sort through a ton of dot notation once I get into the children, so I'm creating a cleaned-up user object and only passing in the info we need for the app from the API result.
     let newUser = {}
     let data = res.data.results[0]
-    console.log(data)
     newUser.name = `${data.name.title} ${data.name.first} ${data.name.last}`
     newUser.addr1 = `${data.location.street.number} ${data.location.street.name}`
     newUser.addr2 = `${data.location.city}, ${data.location.state} ${data.location.postcode}`
