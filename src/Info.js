@@ -9,7 +9,7 @@ import {
 } from "react-icons/fa";
 
 const Info = ({ user }) => {
-  const [activeInfo, setActiveInfo] = useState("name");
+  const [activeInfo, setActiveInfo] = useState("Name");
 
   const handleClick = (id) => {
     console.log(id);
@@ -17,7 +17,7 @@ const Info = ({ user }) => {
   };
 
   return (
-    <div>
+    <div className="info">
       <div className="row w-100 no-wrap">
         <div className="row w-50">
           <img src={user.image} alt="Profile" className="user-image" />
@@ -27,13 +27,13 @@ const Info = ({ user }) => {
             <div className="w-50 icon">
               <div
                 className="icon-container"
-                onClick={() => handleClick("name")}
+                onClick={() => handleClick("Name")}
               >
                 <FaAddressBook className="icon-button" />
               </div>
             </div>
             <div className="w-50 icon">
-              <div className="icon-container" onClick={() => handleClick("address")}>
+              <div className="icon-container" onClick={() => handleClick("Address")}>
                 <FaMap className="icon-button" />
               </div>
             </div>
@@ -42,7 +42,7 @@ const Info = ({ user }) => {
             <div className="w-50 icon">
               <div
                 className="icon-container"
-                onClick={() => handleClick("email")}
+                onClick={() => handleClick("Email")}
               >
                 <FaEnvelope className="icon-button" />
               </div>
@@ -50,7 +50,7 @@ const Info = ({ user }) => {
             <div className="w-50 icon">
               <div
                 className="icon-container"
-                onClick={() => handleClick("phone")}
+                onClick={() => handleClick("Phone")}
               >
                 <FaPhoneAlt className="icon-button" />
               </div>
@@ -60,7 +60,7 @@ const Info = ({ user }) => {
             <div className="w-50 icon">
               <div
                 className="icon-container"
-                onClick={() => handleClick("birthday")}
+                onClick={() => handleClick("Birthday")}
               >
                 <FaBirthdayCake className="icon-button" />
               </div>
@@ -68,7 +68,7 @@ const Info = ({ user }) => {
             <div className="w-50 icon">
               <div
                 className="icon-container"
-                onClick={() => handleClick("login")}
+                onClick={() => handleClick("Login")}
               >
                 <FaKey className="icon-button" />
               </div>
@@ -76,8 +76,33 @@ const Info = ({ user }) => {
           </div>
         </div>
       </div>
-      <div className="row w-100 no-wrap">
-        <h2 className="info-header">{activeInfo}</h2>
+      <div className="row w-100 no-wrap header-wrapper">
+        <div className="info-header">{
+          activeInfo === "Phone" ? 
+          <>
+            <strong>Phone</strong>: {user.phone}<br />
+            <strong>Cell</strong>: {user.cell}
+          </>:
+          activeInfo === "Login" ? 
+          <>
+            <strong>Username</strong>: {user.username}<br />
+            <strong>Password</strong>: {user.password}
+          </> : 
+          activeInfo === "Address" ? 
+          <>
+            <strong>Address</strong> : {user.addr1}<br />
+            {user.addr2}, {user.country}
+          </> : 
+          <>
+            <strong>{activeInfo}</strong>: {user[activeInfo.toLowerCase()]}
+          </>
+        
+        }</div>
+        </div>
+        <div className="row w-100 no-wrap">
+        <div className="info-blurb">
+          <p>Hi! My name is {user.name}. I am from {user.country}. If you need to reach me, you can do so by emailing me at {user.email} or calling me at {user.phone}.</p>
+        </div>
       </div>
     </div>
   );
