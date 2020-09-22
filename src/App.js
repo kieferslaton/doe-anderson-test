@@ -12,7 +12,9 @@ function App() {
   const [user, setUser] = useState(null)
 
   const getNewUser = () => {
+    //Make the API call
     axios.get('https://www.randomuser.me/api').then(res => {
+    //I don't want to sort through a ton of dot notation once I get into the children, so I'm creating a cleaned-up user object and only passing in the info we need for the app from the API result.
     let newUser = {}
     let data = res.data.results[0]
     console.log(data)
